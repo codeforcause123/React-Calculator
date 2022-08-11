@@ -85,7 +85,6 @@ function reducer(state, { type, payload }) {
       ) {
         return state;
       }
-
       return {
         ...state,
         overwrite: true,
@@ -93,6 +92,9 @@ function reducer(state, { type, payload }) {
         operation: null,
         currentOperand: evaluate(state),
       };
+      default:
+      break;
+
   }
 }
 function evaluate({ currentOperand, previousOperand, operation }) {
@@ -112,6 +114,8 @@ function evaluate({ currentOperand, previousOperand, operation }) {
       break;
     case "÷":
       computation = prev / current;
+      break;
+    default:
       break;
   }
 
